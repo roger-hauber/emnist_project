@@ -1,8 +1,8 @@
 
 import numpy as np
-from tensorflow.keras import Model, layers, models
-from tensorflow.keras.callbacks import EarlyStopping
-
+from tensorflow import keras
+from keras import Model, layers, models
+from keras.callbacks import EarlyStopping
 
 def initialize_model(input_shape: tuple = (28,28,1)) -> Model:
     """
