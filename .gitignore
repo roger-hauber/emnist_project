@@ -1,3 +1,4 @@
 .ipynb_checkpoints
 data
 new_data
+__pycache__
