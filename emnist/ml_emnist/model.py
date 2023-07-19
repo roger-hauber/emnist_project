@@ -1,8 +1,11 @@
 
 import numpy as np
+import pandas as pd
 from tensorflow import keras
 from keras import Model, layers, models
 from keras.callbacks import EarlyStopping
+
+from emnist.ml_emnist.data import create_mapping
 
 def initialize_model(input_shape: tuple = (28,28,1)) -> Model:
     """
@@ -65,3 +68,14 @@ def train_model(model: Model,
     print(f"✅ model trained")
 
     return model, history
+
+
+def output(image_array: np.ndarray, model) -> str:
+    """
+    takes model and input image as array,
+    makes prediction and converts prediction to a character string
+    """
+    prediction = np.argmax(model.predict(image_array))
+    mapping = create_mapping()
+
+    return chr(mapping.loc[prediction, 'ascii'])
