@@ -12,7 +12,7 @@ mod_init = initialize_model()
 X_train, y_train = data_prep()[0], data_prep()[2]
 
 #train model
-mod = train_model(mod_init, X_train, y_train, verbose=1)
+mod = train_model(mod_init, X_train, y_train, verbose=1, epochs= 40)
 
 #save h5 mod
-mod.save("current_mod", "h5")
+mod[0].save("current_mod.h5")
